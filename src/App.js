@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import Post from "./components/Post";
+import axios from "axios";
+import React, {useEffect, useState} from "react";
+import PostsBlock from "./components/PostsBlock";
 
+const url = "http://localhost:8000/api";
+const storageUrl = "http://localhost:8000/storage/";
 function App() {
+    const [posts, setPosts] = useState([])
+    const [links, setLinks] = useState([])
+    const getPosts = async (pageNumber = 1) => {
+        const res = await axios.get(url + '/posts?page=' + pageNumber);
+        setPosts(state => {
+            return res.data.data
+        });
+        setLinks(state => {
+            return res.data.meta
+        })
+    };
+    useEffect((pageNumber) => {
+        getPosts(pageNumber);
+    },[]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <PostsBlock links={links} storageUrl={storageUrl} posts={posts} getPosts={getPosts}/>
     </div>
   );
 }
