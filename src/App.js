@@ -4,8 +4,8 @@ import axios from "axios";
 import React, {useEffect, useState} from "react";
 import PostsBlock from "./components/PostsBlock";
 
-const url = "http://localhost:8000/api";
-const storageUrl = "http://localhost:8000/storage/";
+const url = "https://m-api.agdevelopments.net/api";
+const storageUrl = "https://m-api.agdevelopments.net/storage/";
 function App() {
     const [posts, setPosts] = useState([])
     const [links, setLinks] = useState([])

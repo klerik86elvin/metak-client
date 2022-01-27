@@ -3,8 +3,8 @@ import {Link, useParams} from "react-router-dom";
 import axios from "axios";
 import arrowLeft from "../arrow-left.svg";
 
-const url = "http://localhost:8000/api";
-const storageUrl = "http://localhost:8000/storage/";
+const url = "https://m-api.agdevelopments.net/api";
+const storageUrl = "https://m-api.agdevelopments.net/storage/";
 const PostDetail = () => {
     let {id} = useParams();
     const [post, setPost] = useState({})

@@ -3,7 +3,7 @@ import {Link,useNavigate} from "react-router-dom";
 import axios from "axios";
 import arrowLeft from "../arrow-left.svg";
 
-const url = "http://localhost:8000/api";
+const url = "https://m-api.agdevelopments.net/api";
 const AuthForm = () => {
     const [value, setValue] = useState('')
     const navigate = useNavigate();
@@ -47,21 +47,21 @@ const AuthForm = () => {
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
                         pasword
                     </label>
-                    <input
-                        className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-                        type="password"
-                        placeholder="******************"
-                        value={value}
-                        onChange={(e) => setValue(e.target.value)}
-                    />
-                    <div className={"flex justify-center"}>
-                        <button onClick={click} className={" bg-blue-500 h-full p-1 px-2 rounded text-white"}>send</button>
-                        <p className="text-red-500 text-xs italic">{message}</p>
+                    <div className={"flex"}>
+                        <input
+                            className="shadow appearance-none rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                            type="password"
+                            placeholder="******************"
+                            value={value}
+                            onChange={(e) => setValue(e.target.value)}
+                        />
+                        <div className={"flex justify-center ml-3"}>
+                            <button onClick={click} className={" bg-blue-500 h-full p-1 px-2 rounded text-white"}>send</button>
+                        </div>
                     </div>
+                    <p className="absolute text-red-500 text-xs italic">{message}</p>
                 </div>
-
             </div>
-
         </div>
     );
 };

@@ -5,7 +5,7 @@ import axios from "axios";
 import {useForm} from "react-hook-form";
 import arrowLeft from "../arrow-left.svg";
 
-const url = "http://localhost:8000/api";
+const url = "https://m-api.agdevelopments.net/api";
 const CreatePostForm = () => {
     let location = useLocation();
     const navigate = useNavigate();
